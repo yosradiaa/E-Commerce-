@@ -1,0 +1,882 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Document</title>
+    <style>
+        body {
+            font-family: cursive;
+            margin: 0;
+            padding: 0;
+        }
+
+        .container {
+            padding: 30px;
+        }
+
+        .row {
+            display: flex;
+            width: 100%;
+        }
+
+        .col-12 {
+            width: 100%;
+        }
+
+        .col-8 {
+            width: calc(100% * (8/12));
+        }
+
+        .col-7 {
+            width: calc(100% * (7/12));
+        }
+
+        .col-6 {
+            width: calc(100% * (6/12));
+        }
+
+        .col-5 {
+            width: calc(100% * (5/12));
+        }
+
+        .col-4 {
+            width: calc(100% * (4/12));
+        }
+
+        .col-3 {
+            width: calc(100% * (3/12));
+        }
+
+        .col-2 {
+            width: calc(100% * (2/12));
+        }
+
+        header {
+            padding: 8px 25px 8px 25px;
+        }
+
+        header ul {
+            list-style: none;
+            text-align: center;
+            padding-top: 5px;
+        }
+
+        header ul li {
+            display: inline;
+            padding: 0 20px;
+        }
+
+        header ul li a {
+            text-decoration: none;
+            font-weight: bold;
+            color: black;
+            padding: 7px;
+        }
+
+        header .logo {
+            text-align: left;
+        }
+
+        header .icons {
+            text-align: right;
+        }
+
+        header .icons i {
+            padding: 20px 10px 0 10px;
+            font-size: 18px;
+        }
+
+        header ul .home a {
+            border: 1px solid black;
+        }
+
+        header ul li a:hover,
+        .dropdown-content a:hover {
+            border-bottom: 1px solid black;
+        }
+
+        .homeDiv {
+            background-color: #e4d1bf;
+            /* background-color: #f4e7dc; */
+            background-repeat: no-repeat;
+            background-position: center;
+            background-size: cover;
+            height: 420px;
+            width: 100%;
+        }
+
+        body main #home .imgHome {
+            text-align: right;
+        }
+
+        body main #home img {
+            width: 100%;
+            margin-top: 52px;
+        }
+
+        body main #home .textHome {
+            padding: 100px 0 0 50px;
+        }
+
+        body main #home .textHome h1 {
+            color: white;
+        }
+
+        body main #home .textHome button {
+            background-color: #fff5ed;
+            color: black;
+            font-weight: bold;
+            padding: 15px 10px;
+            border-radius: 10px;
+            border: none;
+            box-shadow: #aaa9a9 0px 20px 30px -10px;
+            margin-top: 10px;
+        }
+
+        body main #home .textHome button:hover {
+            transition: all 0.5s;
+            background-color: #f5e9dc;
+        }
+
+        body main #home .textHome p {
+            color: gray;
+        }
+
+        .dropdown-content {
+            display: none;
+            position: absolute;
+            padding-top: 10px;
+            margin-left: -30px;
+            background-color: #ffffff;
+            min-width: 160px;
+            box-shadow: 0px 8px 16px 0px rgba(255, 255, 255, 0.2);
+            z-index: 1;
+        }
+
+        .dropdown-content a {
+            color: black;
+            text-decoration: none;
+            display: block;
+        }
+
+
+        .dropdown:hover .dropdown-content {
+            display: block;
+        }
+
+        .dropdown {
+            position: relative;
+            display: inline-block;
+        }
+
+        .textProduct {
+            text-align: center;
+        }
+
+        .textProduct p {
+            color: gray;
+        }
+
+        #products .products {
+            text-align: center;
+        }
+
+        #products .col-3 {
+            height: 350px;
+            margin: 20px;
+            box-shadow: #e4d1be 0px 20px 30px -10px;
+        }
+
+        #products .container {
+            padding: 30px 50px;
+        }
+
+        #products .container .textProduct {
+            text-align: center;
+            display: inline-block;
+        }
+
+        #products .col-3 img {
+            width: 100%;
+            height: 350px;
+        }
+
+        #products .card {
+            position: relative;
+        }
+
+        #products .grayDiv {
+            display: none;
+            background-image: linear-gradient(to bottom, rgba(0, 0, 0, 0.5), rgba(0, 0, 0, 0.3));
+            height: 350px;
+            width: 100%;
+            position: absolute;
+            top: 0;
+            left: 0;
+            text-align: center;
+        }
+
+        #products .iconsDiv {
+            display: flex;
+            justify-content: space-between;
+        }
+
+        #products .grayDiv .iconsDiv i {
+            font-size: 25px;
+            padding: 20px;
+            color: #e4d1be;
+        }
+
+        #products .grayDiv .iconsDiv .heart:hover {
+            color: red;
+        }
+
+        #products .grayDiv .iconsDiv .shopping:hover {
+            color: rgb(75, 72, 72);
+        }
+
+        .txtGray {
+            text-align: center;
+            justify-content: center;
+            align-items: center;
+            color: white;
+            margin-top: 100px;
+        }
+
+        .txtGray .paragraph {
+            margin-top: 20px;
+        }
+
+        .btnDiv {
+            padding-top: 40px;
+            text-align: center;
+            justify-content: center;
+        }
+
+        .showButton {
+            text-align: center;
+            padding: 12px;
+            background-color: #fff5ed;
+            border-radius: 10px;
+            border: 1px solid #e4d1be;
+            font-weight: bold;
+            font-size: 15px;
+            box-shadow: #e4d1be 0px 20px 30px -10px;
+        }
+
+        .showButton:hover {
+            background-color: #f3dbc4;
+            transition: all 0.5s;
+        }
+
+        .hairProduct {
+            background-color: #faf5f1;
+        }
+
+        .topSvg {
+            margin-top: -150px;
+        }
+
+        .bottomSvg {
+            margin-top: -30px;
+        }
+
+        .hairProduct {
+            margin-top: -20px;
+        }
+
+        .bodyProduct {
+            margin-top: -160px;
+        }
+
+        #about {
+            padding: 0px 0;
+            background-color: #e4d1bf;
+            margin-top: 30px;
+        }
+
+        #about .container {
+            text-align: center;
+            justify-content: center;
+        }
+
+        #about img {
+            width: 100%;
+            margin-right: -50px;
+        }
+
+        #about .paragraph {
+            color: gray;
+        }
+
+        .aboutDiv {
+            padding-top: 50px;
+        }
+
+        .aboutDiv i {
+            font-size: 30px;
+            color: #528365;
+            margin-right: 5px;
+            padding-top: 3px;
+        }
+
+        .aboutDiv h2 {
+            display: inline;
+        }
+
+        .aboutDiv p {
+            margin: 0 auto;
+            color: gray;
+            width: 80%;
+        }
+
+        .aboutDiv .btnAbout {
+            margin-top: 20px;
+            text-align: center;
+            padding: 12px;
+            background-color: #fff5ed;
+            border-radius: 10px;
+            border: none;
+            font-weight: bold;
+            font-size: 15px;
+            box-shadow: #e4d1be 0px 20px 30px -10px;
+        }
+
+        .aboutDiv .btnAbout:hover {
+            background-color: #f5e9dc;
+            transition: all 0.5s;
+        }
+
+        #contact form input,
+        textarea {
+            display: block;
+        }
+
+        #contact form input,
+        textarea {
+            padding: 10px;
+            width: 100%;
+            margin-top: 30px;
+            border: none;
+            outline: none;
+            border-bottom: 1px solid black;
+            background-color: transparent;
+        }
+
+        #contact form input::placeholder,
+        #contact form textarea::placeholder {
+            color: #fff;
+            font-weight: bold;
+            font-size: 16px;
+        }
+
+        #contact form button {
+            margin-top: 40px;
+            text-align: center;
+            padding: 12px;
+            background-color: #e4d1bf;
+            border-radius: 10px;
+            border: none;
+            font-weight: bold;
+            font-size: 15px;
+            box-shadow: #e4d1be 0px 20px 30px -10px;
+            width: 100%;
+        }
+
+        #contact form button:hover {
+            background-color: #f5e9dc;
+            transition: all 0.5s;
+        }
+
+        #contact .col-10 {
+            border: 1px solid black;
+            border-right: none;
+            padding: 70px 30px;
+            z-index: 1;
+        }
+
+        #contact .col-4 {
+            text-align: center;
+            padding-top: 20px;
+            padding-left: 40px;
+        }
+
+        #contact .col-4 div:nth-child(2) {
+            padding-top: 10px;
+        }
+
+        #contact .icons {
+            padding-top: 20px;
+            font-size: 20px;
+            text-align: center;
+        }
+
+        #contact .icons i {
+            justify-content: space-around;
+            padding-left: 20px;
+        }
+
+        #contact {
+            position: relative;
+        }
+
+        #contact h2 {
+            padding-left: 10px;
+        }
+
+        .imgContact {
+            position: absolute;
+            top: 30%;
+            left: 3%;
+            background-image: linear-gradient(to bottom, rgba(0, 0, 0, 0.2), rgba(0, 0, 0, 0.2)), url(./images/We\ scale\ DTC\ brands\ 🚀.jpeg);
+            background-repeat: no-repeat;
+            background-size: cover;
+            background-position: center;
+            height: 450px;
+        }
+
+        footer {
+            background-color: #e4d1bf;
+            margin-top: 100px;
+            text-align: center;
+            font-weight: bold;
+            font-size: 14px;
+        }
+
+        footer .logo,
+        header .logoo {
+            font-size: 25px;
+            color: #528365;
+            margin-right: 5px;
+            padding-top: 3px;
+
+        }
+
+        footer ul {
+            list-style: none;
+        }
+
+        footer h2 {
+            display: inline;
+        }
+
+        footer td i {
+            font-size: 16px;
+            margin-right: 7px;
+            padding-top: 3px;
+        }
+
+        footer .col-4:nth-child(2) {
+            padding-top: 30px;
+        }
+
+        header .logo h1 {
+            display: inline;
+        }
+
+        header .logo {
+            padding-top: 10px;
+        }
+
+        footer table {
+            padding-left: 100px;
+        }
+
+        .icons a {
+            color: black;
+            text-decoration: none;
+            cursor: pointer;
+        }
+
+        #home button a {
+            text-decoration: none;
+            color: black;
+        }
+
+        .btnDiv a,
+        .btnAbout a {
+            text-decoration: none;
+            color: black;
+        }
+
+        .btnDiv button:nth-child(1) {
+            z-index: 1;
+        }
+        button, :placeholder-shown{
+            font-family: cursive;
+        }
+
+    </style>
+</head>
+
+<body>
+    <header>
+        <nav class="row">
+            <div class="col-3 logo">
+                <i class="fa-solid fa-leaf logoo"></i>
+                <h1>GLOWING</h1>
+            </div>
+            <div class="col-6">
+                <ul>
+                    <li class="home">
+                        <a href="#home">HOME</a>
+                    </li>
+                    <li class="dropdown">
+                        <a href=" ./index.html" class="dropLi">PRODUCT</a>
+                        <!-- <div class="dropdown-content">
+                            <a href="#skinProduct">SKIN CARE</a>
+                            <a href="#hairProduct">HAIR CARE</a>
+                            <a href="#bodyProduct">BODY CARE</a>
+                        </div> -->
+                    </li>
+                    <li>
+                        <a href="#about">ABOUT</a>
+                    </li>
+                    <li>
+                        <a href="#contact">CONTACT</a>
+                    </li>
+                </ul>
+            </div>
+            <div class="col-3 icons">
+                <a href="wishlist.html" id="wishlistLink"><i class="fa-solid fa-heart"></i> <span
+                        id="wishlistCount"></span></a>
+                <a href="cart-details.html" id="cartLink"><i class="fa-solid fa-shopping-cart"></i> <span
+                        id="cartCount"></span></a>
+                <a href="Sign-in.html"><i class="fa-solid fa-arrow-right-from-bracket"></i></a>
+            </div>
+        </nav>
+    </header>
+    <main>
+        <section id="home">
+            <div class="homeDiv row">
+                <div class="col-6 textHome">
+                    <p>ADVANCE CELL CARE</p>
+                    <h1>GET THE BEST CARE TREATMENTS</h1>
+                    <button><a href="index.html">VIEW PRODUCTS</a></button>
+                </div>
+                <div class="col-6 imgHome">
+                    <img src="./images/girls.png" alt="" />
+                </div>
+            </div>
+        </section>
+        <section id="products">
+            <div class="container skinProduct" id="skinProduct">
+                <div class="row textProduct">
+                    <p>HEALTHY CARE AND NATURAL</p>
+                    <h2>SKIN PRODUCTS</h2>
+                </div>
+                <div class="row products">
+                    <div class="col-3 card">
+                        <img src="./images/9.jpeg" alt="" />
+                        <div class="grayDiv">
+                            <div class="iconsDiv"> <i class="fa-solid fa-cart-shopping shopping"></i>
+                                <i class="fa-solid fa-heart heart"></i>
+                            </div>
+                            <div class="txtGray">
+                                <h4>CARE PRODUCT</h4>
+                                <p class="paragraph">Lorem ipsum dolor sit amet consectetur adipisicing elit.</p>
+                            </div>
+                        </div>
+                    </div>
+                    <div class="col-3 card">
+                        <img src="./images/2.jpeg" alt="" />
+                        <div class="grayDiv">
+                            <div class="iconsDiv"> <i class="fa-solid fa-cart-shopping shopping"></i>
+                                <i class="fa-solid fa-heart heart"></i>
+                            </div>
+                            <div class="txtGray">
+                                <h4>CARE PRODUCT</h4>
+                                <p class="paragraph">Lorem ipsum dolor sit amet consectetur adipisicing elit.</p>
+                            </div>
+                        </div>
+                    </div>
+                    <div class="col-3 card">
+                        <img src="./images/3.jpeg" alt="" />
+                        <div class="grayDiv">
+                            <div class="iconsDiv"> <i class="fa-solid fa-cart-shopping shopping"></i>
+                                <i class="fa-solid fa-heart heart"></i>
+                            </div>
+                            <div class="txtGray">
+                                <h4>CARE PRODUCT</h4>
+                                <p class="paragraph">Lorem ipsum dolor sit amet consectetur adipisicing elit.</p>
+                            </div>
+                        </div>
+                    </div>
+                    <div class="col-3 card">
+                        <img src="./images/5.jpeg" alt="" />
+                        <div class="grayDiv">
+                            <div class="iconsDiv"> <i class="fa-solid fa-cart-shopping shopping"></i>
+                                <i class="fa-solid fa-heart heart"></i>
+                            </div>
+                            <div class="txtGray">
+                                <h4>CARE PRODUCT</h4>
+                                <p class="paragraph">Lorem ipsum dolor sit amet consectetur adipisicing elit.</p>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+                <div class="row btnDiv">
+                    <button class="showButton"><a href="index.html"> SHOW MORE</a></button>
+                </div>
+            </div>
+
+            <svg class="topSvg" xmlns="http://www.w3.org/2000/svg" viewBox="0 0 1440 320">
+                <path fill="#faf5f1" fill-opacity="1"
+                    d="M0,160L34.3,176C68.6,192,137,224,206,218.7C274.3,213,343,171,411,176C480,181,549,235,617,240C685.7,245,754,203,823,202.7C891.4,203,960,245,1029,272C1097.1,299,1166,309,1234,298.7C1302.9,288,1371,256,1406,240L1440,224L1440,320L1405.7,320C1371.4,320,1303,320,1234,320C1165.7,320,1097,320,1029,320C960,320,891,320,823,320C754.3,320,686,320,617,320C548.6,320,480,320,411,320C342.9,320,274,320,206,320C137.1,320,69,320,34,320L0,320Z">
+                </path>
+            </svg>
+            <div class="container hairProduct" id="hairProduct">
+                <div class="row textProduct">
+                    <h2>HAIR PRODUCTS</h2>
+                </div>
+                <div class="row products">
+                    <div class="col-3 card">
+                        <img src="./images/4.jpeg" alt="" />
+                        <div class="grayDiv">
+                            <div class="iconsDiv"> <i class="fa-solid fa-cart-shopping shopping"></i>
+                                <i class="fa-solid fa-heart heart"></i>
+                            </div>
+                            <div class="txtGray">
+                                <h4>CARE PRODUCT</h4>
+                                <p class="paragraph">Lorem ipsum dolor sit amet consectetur adipisicing elit.</p>
+                            </div>
+                        </div>
+                    </div>
+                    <div class="col-3 card">
+                        <img src="./images/4.jpeg" alt="" />
+                        <div class="grayDiv">
+                            <div class="iconsDiv"> <i class="fa-solid fa-cart-shopping shopping"></i>
+                                <i class="fa-solid fa-heart heart"></i>
+                            </div>
+                            <div class="txtGray">
+                                <h4>CARE PRODUCT</h4>
+                                <p class="paragraph">Lorem ipsum dolor sit amet consectetur adipisicing elit.</p>
+                            </div>
+                        </div>
+                    </div>
+                    <div class="col-3 card">
+                        <img src="./images/4.jpeg" alt="" />
+                        <div class="grayDiv">
+                            <div class="iconsDiv"> <i class="fa-solid fa-cart-shopping shopping"></i>
+                                <i class="fa-solid fa-heart heart"></i>
+                            </div>
+                            <div class="txtGray">
+                                <h4>CARE PRODUCT</h4>
+                                <p class="paragraph">Lorem ipsum dolor sit amet consectetur adipisicing elit.</p>
+                            </div>
+                        </div>
+                    </div>
+                    <div class="col-3 card">
+                        <img src="./images/4.jpeg" alt="" />
+                        <div class="grayDiv">
+                            <div class="iconsDiv"> <i class="fa-solid fa-cart-shopping shopping"></i>
+                                <i class="fa-solid fa-heart heart"></i>
+                            </div>
+                            <div class="txtGray">
+                                <h4>CARE PRODUCT</h4>
+                                <p class="paragraph">Lorem ipsum dolor sit amet consectetur adipisicing elit.</p>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+                <div class="row btnDiv">
+                    <button class="showButton"><a href="index.html"> SHOW MORE</a></button>
+                </div>
+            </div>
+            <svg class="bottomSvg" xmlns="http://www.w3.org/2000/svg" viewBox="0 0 1440 320">
+                <path fill="#faf5f1" fill-opacity="1"
+                    d="M0,32L26.7,53.3C53.3,75,107,117,160,122.7C213.3,128,267,96,320,90.7C373.3,85,427,107,480,101.3C533.3,96,587,64,640,69.3C693.3,75,747,117,800,144C853.3,171,907,181,960,165.3C1013.3,149,1067,107,1120,96C1173.3,85,1227,107,1280,106.7C1333.3,107,1387,85,1413,74.7L1440,64L1440,0L1413.3,0C1386.7,0,1333,0,1280,0C1226.7,0,1173,0,1120,0C1066.7,0,1013,0,960,0C906.7,0,853,0,800,0C746.7,0,693,0,640,0C586.7,0,533,0,480,0C426.7,0,373,0,320,0C266.7,0,213,0,160,0C106.7,0,53,0,27,0L0,0Z">
+                </path>
+            </svg>
+            <!-- <svg class="bottomSvg" xmlns="http://www.w3.org/2000/svg" viewBox="0 0 1440 320"><path fill="#faf5f1" fill-opacity="1" d="M0,160L34.3,176C68.6,192,137,224,206,218.7C274.3,213,343,171,411,176C480,181,549,235,617,240C685.7,245,754,203,823,202.7C891.4,203,960,245,1029,272C1097.1,299,1166,309,1234,298.7C1302.9,288,1371,256,1406,240L1440,224L1440,0L1405.7,0C1371.4,0,1303,0,1234,0C1165.7,0,1097,0,1029,0C960,0,891,0,823,0C754.3,0,686,0,617,0C548.6,0,480,0,411,0C342.9,0,274,0,206,0C137.1,0,69,0,34,0L0,0Z"></path></svg> -->
+            <div class="container bodyProduct" id="bodyProduct">
+                <div class="row textProduct">
+                    <h2>BODY PRODUCTS</h2>
+                </div>
+                <div class="row products">
+                    <div class="col-3 card">
+                        <img src="./images/3.jpeg" alt="" />
+                        <div class="grayDiv">
+                            <div class="iconsDiv"> <i class="fa-solid fa-cart-shopping shopping"></i>
+                                <i class="fa-solid fa-heart heart"></i>
+                            </div>
+                            <div class="txtGray">
+                                <h4>CARE PRODUCT</h4>
+                                <p class="paragraph">Lorem ipsum dolor sit amet consectetur adipisicing elit.</p>
+                            </div>
+                        </div>
+                    </div>
+                    <div class="col-3 card">
+                        <img src="./images/5.jpeg" alt="" />
+                        <div class="grayDiv">
+                            <div class="iconsDiv"> <i class="fa-solid fa-cart-shopping shopping"></i>
+                                <i class="fa-solid fa-heart heart"></i>
+                            </div>
+                            <div class="txtGray">
+                                <h4>CARE PRODUCT</h4>
+                                <p class="paragraph">Lorem ipsum dolor sit amet consectetur adipisicing elit.</p>
+                            </div>
+                        </div>
+                    </div>
+                    <div class="col-3 card">
+                        <img src="./images/9.jpeg" alt="" />
+                        <div class="grayDiv">
+                            <div class="iconsDiv"> <i class="fa-solid fa-cart-shopping shopping"></i>
+                                <i class="fa-solid fa-heart heart"></i>
+                            </div>
+                            <div class="txtGray">
+                                <h4>CARE PRODUCT</h4>
+                                <p class="paragraph">Lorem ipsum dolor sit amet consectetur adipisicing elit.</p>
+                            </div>
+                        </div>
+                    </div>
+                    <div class="col-3 card">
+                        <img src="./images/2.jpeg" alt="" />
+                        <div class="grayDiv">
+                            <div class="iconsDiv"> <i class="fa-solid fa-cart-shopping shopping"></i>
+                                <i class="fa-solid fa-heart heart"></i>
+                            </div>
+                            <div class="txtGray">
+                                <h4>CARE PRODUCT</h4>
+                                <p class="paragraph">Lorem ipsum dolor sit amet consectetur adipisicing elit.</p>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+                <div class="row btnDiv">
+                    <button class="showButton"><a href="index.html"> SHOW MORE</a></button>
+                </div>
+            </div>
+        </section>
+        <section id="about">
+            <div class="container">
+                <h2>ABOUT US</h2>
+                <p class="paragraph">Lorem ipsum dolor, sit amet consectetur adipisicing elit.</p>
+                <div class="row col-12">
+                    <div class="col-5">
+                        <div class="aboutDiv">
+                            <i class="fa-solid fa-leaf"></i>
+                            <h2>100% NATURAL</h2>
+                            <h4>ORGANIC & VEGAN</h4>
+                            <p>Lorem ipsum dolor sit amet consectetur adipisicing elit. Velit accusantium praesentium
+                                explicabo fuga commodi magni ex neque! Saepe molestias non illo fugiat deserunt animi,
+                                voluptatibus rerum cum debitis ratione voluptatem.</p>
+                            <button class="btnAbout"><a href="index.html">PRODUCTS</a></button>
+                        </div>
+                    </div>
+                    <div class="col-7 imgAbout">
+                        <img src="./images/about2.png" alt="" />
+                    </div>
+                </div>
+            </div>
+        </section>
+
+        <section id="contact">
+            <div class="container">
+                <h2>CONTACT US</h2>
+                <div class="row">
+                    <div class="col-5 imgContact">
+
+                    </div>
+                    <div class="col-5">
+                    </div>
+                    <div class="col-10 row">
+                        <form method="post" action="redirect.html" class="col-7">
+                            <input type="text" name="name" id="name" placeholder="FULL NAME" required />
+                            <input type="email" name="email" id="email" placeholder="EMAIL" required />
+                            <textarea placeholder="MESSAGE" required></textarea>
+                            <button type="submit">CONTACT US</button>
+                        </form>
+                        <div class="col-4">
+                            <div>
+                                <h3>CONTACT</h3>
+                                <p>SELFCARE@GMAIL.COM</p>
+                            </div>
+                            <div>
+                                <h3>BASED ON</h3>
+                                <p>BENI-SUEF, EGYPT</p>
+                            </div>
+                            <div class="icons">
+                                <i class="fa-brands fa-facebook-f"></i>
+                                <i class="fa-brands fa-square-instagram"></i>
+                                <i class="fa-brands fa-twitter"></i>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+            </div>
+        </section>
+    </main>
+    <footer>
+        <div class="container">
+            <div class="row col-12">
+                <div class="col-4">
+                    <ul>
+                        <p>MADE BY</p>
+                        <li>NAIRA GAMAL</li><br>
+                        <li>YOSRA DIAA</li><br>
+                        <li>ISRAA GAMAL</li>
+                    </ul>
+                </div>
+                <div class="col-4">
+                    <i class="fa-solid fa-leaf logo"></i>
+                    <h2>GLOWING</h2>
+                </div>
+                <div class="col-4">
+                    <table>
+                        <tr>
+                            <td>
+                                <i class="fa-brands fa-facebook-f"></i>
+                            </td>
+                            <td>
+                                <p>FACEBOOK</p>
+                            </td>
+                        </tr>
+                        <tr>
+                            <td>
+                                <i class="fa-brands fa-square-instagram"></i>
+                            </td>
+                            <td>
+                                <p>INSTAGRAM</p>
+                            </td>
+                        </tr>
+                        <tr>
+                            <td>
+                                <i class="fa-brands fa-twitter"></i>
+                            </td>
+                            <td>
+                                <p>TWITTER</p>
+                            </td>
+                        </tr>
+                    </table>
+
+                </div>
+
+            </div>
+            <P class="rights">@ITI 2023, ALL RIGHTS RESERVED.</P>
+        </div>
+
+    </footer>
+    <script>
+        let cards = document.getElementsByClassName("card");
+
+        for (let i = 0; i < cards.length; i++) {
+            let grayDiv = document.getElementsByClassName("grayDiv")[i];
+
+            cards[i].addEventListener('mouseover', function () {
+                grayDiv.style.display = "block";
+            });
+
+            cards[i].addEventListener('mouseleave', function () {
+                grayDiv.style.display = "none";
+            });
+        }
+
+    </script>
+    <script src="https://kit.fontawesome.com/6700b6d260.js" crossorigin="anonymous"></script>
+    <script src="customer.js"></script>
+</body>
+
+</html>

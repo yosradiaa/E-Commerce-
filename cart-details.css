@@ -1,0 +1,295 @@
+body{
+    margin: 0;
+    padding: 0;
+    font-family: cursive;
+}
+.container {
+    padding: 30px;
+}
+.tprice{
+    padding: 10px 0;
+    text-align: center;
+    font-weight: bold;
+}
+.tprice p{
+    font-size: 18px;
+}
+.tprice button{
+    font-family: cursive;
+    font-weight: bold;
+}
+.row {
+    display: flex;
+    width: 100%;
+}
+
+.col-12 {
+    width: 100%;
+}
+
+.col-8 {
+    width: calc(100% * (8/12));
+}
+
+.col-7 {
+    width: calc(100% * (7/12));
+}
+
+.col-6 {
+    width: calc(100% * (6/12));
+}
+
+.col-5 {
+    width: calc(100% * (5/12));
+}
+
+.col-4 {
+    width: calc(100% * (4/12));
+}
+
+.col-3 {
+    width: calc(100% * (3/12));
+}
+
+.col-2 {
+    width: calc(100% * (2/12));
+}
+
+header {
+    padding: 8px 25px 8px 25px;
+}
+
+header ul {
+    list-style: none;
+    text-align: center;
+    padding-top: 5px;
+}
+
+header ul li {
+    display: inline;
+    padding: 0 20px;
+}
+
+header ul li a {
+    text-decoration: none;
+    font-weight: bold;
+    color: black;
+    padding: 7px;
+}
+
+header .logo {
+    text-align: left;
+}
+
+header .icons {
+    text-align: right;
+}
+
+header .icons a {
+    color: black;
+    text-decoration: none;
+}
+
+header .icons a:hover {
+    color: black;
+    text-decoration: none;
+    border-bottom: none;
+    cursor: pointer;
+}
+
+
+header .icons i {
+    padding: 20px 10px 0 10px;
+    font-size: 18px;
+}
+
+header ul .dash a {
+    border: 1px solid black;
+}
+
+header ul li a:hover,
+.dropdown-content a:hover {
+    border-bottom: 1px solid black;
+}
+
+header .logoo {
+    font-size: 25px;
+    color: #528365;
+    margin-right: 5px;
+    padding-top: 3px;
+
+}
+
+header .logo h1 {
+    display: inline;
+}
+
+header .logo {
+    padding-top: 10px;
+}
+
+#product-list{
+    height: 300px;
+}
+footer {
+    background-color: #e4d1bf;
+    margin-top: 100px;
+    text-align: center;
+    font-weight: bold;
+    font-size: 14px;
+}
+
+footer .logo,
+header .logoo {
+    font-size: 25px;
+    color: #528365;
+    margin-right: 5px;
+    padding-top: 3px;
+
+}
+
+footer ul {
+    list-style: none;
+}
+
+footer h2 {
+    display: inline;
+}
+
+footer td i {
+    font-size: 16px;
+    margin-right: 7px;
+    padding-top: 3px;
+}
+
+footer .col-4:nth-child(2) {
+    padding-top: 30px;
+}
+
+footer table {
+    padding-left: 100px;
+}
+
+a:hover{
+    border-bottom: 1px solid black;
+    color: black;
+}
+.col-3 a i {
+    text-decoration: none;
+    color: #333;
+    margin: 8px 10px;
+}
+h2 {
+    text-align: center;
+    color: #333;
+    margin-bottom: 30px;
+}
+
+#cartItems {
+    margin-top: 20px;
+    text-align: center;
+    justify-content: center;
+}
+#cartItems button{
+    text-align: center;
+}
+.wishlist-icon {
+    font-size: 35px;
+    cursor: pointer;
+    margin-left: 50px;
+    padding: 0px 10px;
+    color: rgb(197, 15, 15);
+}
+
+#wishlistLink {
+    position: relative;
+}
+
+#wishlistCount {
+    position: absolute;
+    bottom: -5px;
+    right: -5px;
+    background-color: rgb(197, 15, 15);
+    color: white;
+    border-radius: 50%;
+    padding: 2px 6px;
+    font-size: 12px;
+    display: none;
+}
+#wishlistCount:not(:empty) {
+    display: inline;
+}
+
+#cartLink {
+    position: relative;
+}
+#cartLink i{
+color: rgb(13, 129, 85);}
+
+#cartCount {
+    position: absolute;
+    bottom: -5px;
+    right: -5px;
+    background-color: rgb(197, 15, 15);
+    color: white;
+    border-radius: 50%;
+    padding: 2px 6px;
+    font-size: 12px;
+    display: none;
+}
+#cartCount:not(:empty) {
+    display: inline;
+}
+.cart-item {
+    border: 1px solid #ddd;
+    background-color: #fff;
+    border-radius: 8px;
+    padding: 15px;
+    margin-bottom: 10px;
+    margin-top: 50px;
+    text-align: left;
+    display: inline-block;
+    margin-right: 10px;
+}
+
+.cart-item-details {
+    margin-bottom: 10px;
+}
+
+.quantity-price span {
+    margin-right: 10px;
+}
+
+button {
+    background-color: rgb(197, 15, 15);
+    color: #fff;
+    border: none;
+    padding: 5px 10px;
+    border-radius: 5px;
+    cursor: pointer;
+}
+
+button:hover {
+    background-color: rgb(197, 15, 15);
+}
+.product-image {
+    max-height: 100px; 
+    margin: 0 auto;
+    float: center;
+    
+}
+
+#checkoutButton{
+    background-color: #e4d1bf;;
+    color: black;
+    border: none;
+    padding: 10px 15px;
+    border-radius: 5px;
+    cursor: pointer;
+    transition: background-color 0.3s ease;
+}
+#checkoutButton:hover {
+    background-color: #f5e9dc;
+}
+
+
